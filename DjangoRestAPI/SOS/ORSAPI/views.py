@@ -71,6 +71,7 @@ def user_list(request, pageNo=0):
 
 @csrf_exempt
 def delete_user(request, id=0):
+    print('delete method => ')
     res = {}
     service = UserService()
     service.delete(id)

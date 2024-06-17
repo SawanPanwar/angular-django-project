@@ -52,7 +52,7 @@ class UserService:
         connection.commit()
         connection.close()
 
-    def auth(e, p):
+    def auth(self, e, p):
         sql = "select * from sos_user where loginId = (%s) and password = (%s)"
         data = [e, p]
         cursor = connection.cursor()

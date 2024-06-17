@@ -7,12 +7,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { UserComponent } from './user/user.component';
+import { UserlistComponent } from './user/userlist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    SignupComponent
+    SignupComponent,
+    LoginComponent,
+    NavbarComponent,
+    UserComponent,
+    UserlistComponent
   ],
   imports: [
     BrowserModule,
