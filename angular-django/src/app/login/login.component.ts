@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpServiceService } from '../http-service.service';
 
 @Component({
   selector: 'app-login',
@@ -14,25 +14,30 @@ export class LoginComponent {
     message: '',
   }
 
-  constructor(private httpClient: HttpClient, public router: Router) {
+  constructor(private httpService: HttpServiceService, public router: Router) {
 
   }
 
+
+
   signIn() {
-    this.httpClient.post('http://localhost:8000/ORSAPI/login/', this.form.data).subscribe((res: any) => {
-
+    var self = this;
+    this.httpService.post('http://localhost:8000/ORSAPI/login/', this.form.data, function (res: any) {
       console.log('res => ', res)
-
-      this.form.message = '';
-
+      self.form.message = '';
+      
       if (res.result.message) {
-        this.form.message = res.result.message;
+        self.form.message = res.result.message;
       }
 
       if (res.result.data != null) {
         localStorage.setItem('firstName', res.result.data.firstName)
-        this.router.navigateByUrl('welcome');
+        self.router.navigateByUrl('welcome');
       }
     })
+  }
+
+  signUp() {
+    this.router.navigateByUrl('signup');
   }
 }

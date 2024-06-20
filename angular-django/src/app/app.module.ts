@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserComponent } from './user/user.component';
 import { UserlistComponent } from './user/userlist.component';
+import { HttpServiceService } from './http-service.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { UserlistComponent } from './user/userlist.component';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    HttpServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
